@@ -41,7 +41,7 @@ const connect = async() => {
         if (!m.message) return
         if (m.key && m.key.remoteJid == "status@broadcast") return
 
-		if (config.options.autoRead) await sock.sendReadReceipt(m.key.remoteJid, m.key.participant, [m.key.id])
+		//if (config.options.autoRead) await sock.sendReadReceipt(m.key.remoteJid, m.key.participant, [m.key.id])
         messageHandler(sock,  m)
 	})
 
