@@ -1,7 +1,7 @@
 {
     "APIs": {
       "zenz": "https://zenzapis.xyz",
-      "apikey": "YOURAPIKEY"
+      "apikey": "fca3bc121fd8"
     },
     "options": {
       "autoRead": true,
@@ -10,12 +10,12 @@
       "limitGame": 20
     },
     "exif": {
-      "packname": "zenzapis",
-      "author": "https://zenzapis.xyz"
+      "packname": "Bakul Bot",
+      "author": "Whatsapp"
     },
     "owner": [
-      "62812XXX"
+      "6282144572368"
     ],
     "timezone": "Asia/Jakarta",
-    "footer": "Powered by https://zenzapis.xyz"
+    "footer": "Powered by bakulcilok"
 }
