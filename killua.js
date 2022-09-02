@@ -2204,12 +2204,12 @@ module.exports = async (sock, m) => {
                 const limitt = isPremium || isOwner ? 'Unlimited' : user.getLimit(m.sender, _user)
                 const limitg = user.getLimit(m.sender, _user)
                 let templateButtons = [
-                    { urlButton: { displayText: "Source Code", url: "https://github.com/zhwzein/Killua-Zoldyck" } },
-                    { urlButton: { displayText: "Main APIs", url: "http://zenzapis.xyz" } },
+                    { urlButton: { displayText: "Source Code", url: "https://bakulcilok.6te.net" } },
+                    { urlButton: { displayText: "Main APIs", url: "https://bakul-api.herokuapp.com/docs" } },
                     { quickReplyButton: { displayText: "Owner", id: ".owner" } }
                 ]
                 let templateMessage = {
-                    image: { url: 'https://camo.githubusercontent.com/23f3195d91e7095ae37ef6a22475b9f1206f8334bc3e5ca61637f7d7e8cf962a/68747470733a2f2f692e70696e696d672e636f6d2f373336782f66662f38372f62372f66663837623730653963396465613464396361333263393533386138316333622e6a7067' },
+                    image: { url: 'https://telegra.ph/file/ae32138a182cc0109eadd.jpg' },
                     caption: zenz.menu(senderName, limitt, limitg, role),
                     footer: config.footer,
                     templateButtons: templateButtons
@@ -3638,7 +3638,7 @@ module.exports = async (sock, m) => {
                 sock.sendText(m.from, caption, m)
                 user.limitAdd(m.sender, isPremium, isOwner, _user)
             }
-			break
+            break
             // USERS COMMNAND
             case 'inv': case 'tas': case 'inventory': {
                 if (command && !isGroup) return global.mess("group", m)
@@ -3649,9 +3649,9 @@ module.exports = async (sock, m) => {
                 const emas = rpg.getEmas(m.sender, _rpg)
                 m.reply(zenz.inventory(senderName, balance, fish, batu, permata, emas))
             }
-			break
+            break
             case 'afk': {
-			if (!isGroup) return global.mess("group", m)
+            if (!isGroup) return global.mess("group", m)
             if (user.isLimit(m.sender, isPremium, isOwner, config.options.limitCount, _user) && !m.fromMe) return global.mess("isLimit", m)
                 if (isAfkOn) return reply("AFK telah aktifkan sebelumnya")
                 const reason = q ? q : 'Nothing.'
@@ -3662,10 +3662,10 @@ module.exports = async (sock, m) => {
             }
             break
             case 'limit': case 'ceklimit': {
-			    if (isPremium || isOwner) return m.reply(`Limit: Unlimited\nLimit Game: ${user.getLimitGame(m.sender, _user)} / ${config.options.limitgameCount} Max\n\nBalance : ${user.getBalance(m.sender, _user)}`)
-			    m.reply(`Limit left: ${user.getLimit(m.sender, _user)} / ${config.options.limitCount} Max\nLimit Game: ${user.getLimitGame(m.sender, _user)} / ${config.options.limitgameCount} Max\nBalance : ${user.getBalance(m.sender, _user)}\n\n_Limit direset tiap pukul 00:00_`)
+                if (isPremium || isOwner) return m.reply(`Limit: Unlimited\nLimit Game: ${user.getLimitGame(m.sender, _user)} / ${config.options.limitgameCount} Max\n\nBalance : ${user.getBalance(m.sender, _user)}`)
+                m.reply(`Limit left: ${user.getLimit(m.sender, _user)} / ${config.options.limitCount} Max\nLimit Game: ${user.getLimitGame(m.sender, _user)} / ${config.options.limitgameCount} Max\nBalance : ${user.getBalance(m.sender, _user)}\n\n_Limit direset tiap pukul 00:00_`)
             }
-			break
+            break
             case 'cekpremium': case 'cekprem': {
                 if (command && !isGroup) return global.mess("group", m)
                 if (!isPremium) return global.mess("premium", m)
