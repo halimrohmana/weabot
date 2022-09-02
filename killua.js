@@ -2561,8 +2561,8 @@ module.exports = async (sock, m) => {
             case 'ownerbot': case 'owner': {
                 const vcard = 'BEGIN:VCARD\n'
                 + 'VERSION:3.0\n' 
-                + 'FN:zahwazein\n'
-                + 'ORG:zenzapis.xyz\n'
+                + 'FN:bakulcilok\n'
+                + 'ORG:bakulcilok.6te.net\n'
                 + `TEL;type=CELL;type=VOICE;waid=${config.owner[0]}:${config.owner[0]}\n`
                 + 'END:VCARD'
                 sock.sendMessage(m.from, {
