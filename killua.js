@@ -1416,7 +1416,7 @@ module.exports = async (sock, m) => {
                 caption += `⭔ Desc : ${i.desc}\n`
                 let buttons = [
                     { buttonId: `${prefix}dl_ audio ${i.getAudio}`, buttonText: { displayText: 'Get Audio'}, type: 1 },
-                    { buttonId: `${prefix}dl_ video ${i.getVideo}`, buttonText: { displayText: 'Get Video'}, type: 1 }
+                    { buttonId: `${prefix}dl_video ${i.getVideo}`, buttonText: { displayText: 'Get Video'}, type: 1 }
                 ]
                 let buttonMessage = {
                     image: { url: i.thumb },
