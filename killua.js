@@ -783,7 +783,6 @@ module.exports = async (sock, m) => {
             }
             break
             case 'sticker': case 'stiker': case 's': {
-                if (command && !isGroup) return global.mess("group", m)
                 if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command} or url`)
                 if (user.isLimit(m.sender, isPremium, isOwner, config.options.limitCount, _user) && !m.fromMe) return global.mess("isLimit", m)
                 user.limitAdd(m.sender, isPremium, isOwner, _user)
