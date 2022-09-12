@@ -854,7 +854,6 @@ module.exports = async (sock, m) => {
             break
             case 'takesticker': case 'take': case 'colong': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command} or url`)
                 const mime = (quoted.msg || m.msg).mimetype
                 if (/image|video|sticker/.test(mime)) {
@@ -922,7 +921,6 @@ module.exports = async (sock, m) => {
             break
             case 'tovideo': case 'tomedia': case 'tomp4': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command}`)
                 const mime = (quoted.msg || m.msg).mimetype
                 if (/image|video|sticker/.test(mime)) {
@@ -943,7 +941,6 @@ module.exports = async (sock, m) => {
             break
             case 'whatmusic': case 'findmusic': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command} or url`)
                 const mime = (quoted.msg || m.msg).mimetype
                 if (/audio/.test(mime)) {
@@ -1123,7 +1120,6 @@ module.exports = async (sock, m) => {
             break
             case 'facebook': case 'fbdl': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/facebook/v2", { url: isUrl(text)[0] }, "apikey"))
                 let caption = `*Facebook Downloader*\n\n`
@@ -1170,7 +1166,6 @@ module.exports = async (sock, m) => {
             break
             case 'instagram': case 'ig': case 'igdl': case 'igtv': case 'igreel': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/instagram", { url:isUrl(text)[0] }, "apikey"))
                 for (let i of fetch.result) sock.sendFile(m.from, i, "", m, { caption: `Download Media From : ${isUrl(text)[0]}` })
@@ -1178,7 +1173,6 @@ module.exports = async (sock, m) => {
             break
             case 'instastory': case 'igstory': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!text) return m.reply(`Example: ${prefix + command} url or username`)
                 if (isUrl(text)) {
                     let fetch = await fetchUrl(global.api("zenz", "/downloader/instagram/story/v2", { url:isUrl(text)[0] }, "apikey"))
@@ -1211,7 +1205,6 @@ module.exports = async (sock, m) => {
             break
             case 'mediafire': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/mediafire", { url: isUrl(text)[0] }, "apikey"))
                 sock.sendFile(m.from, fetch.result, "", m)
@@ -1219,7 +1212,6 @@ module.exports = async (sock, m) => {
             break
             case 'pinterest': case 'pinvideo': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/pinterestdl", { url: isUrl(text)[0] }, "apikey"))
                 const zen = getRandom('mp4')
@@ -1243,7 +1235,6 @@ module.exports = async (sock, m) => {
             case 'tiktok': {
                 if (command && !isGroup) return global.mess("group", m)
                 if (!text) return m.reply(`Example: ${prefix + command} username or url`)
-                if (!isPremium) return global.mess("premium", m)
                 try {
                     if (isUrl(text)) {
                         let fetch = await fetchUrl(global.api("zenz", "/downloader/musically", { url: isUrl(text)[0] }, "apikey"))
@@ -1294,7 +1285,6 @@ module.exports = async (sock, m) => {
             break
             case 'tiktokmp3': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/musically", { url: isUrl(text)[0] }, "apikey"))
                 let buttons = [
@@ -1314,7 +1304,6 @@ module.exports = async (sock, m) => {
             break
             case 'tiktokwm': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/tiktok", { url: isUrl(text)[0] }, "apikey"))
                 let buttons = [
@@ -1333,7 +1322,6 @@ module.exports = async (sock, m) => {
             break
             case 'twitter': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/twitter", { url: isUrl(text)[0] }, "apikey"))
                 let caption = `*Twitter Downloader*\n\n`
@@ -1356,7 +1344,6 @@ module.exports = async (sock, m) => {
             break
             case 'twittermp3': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/twitter", { url: isUrl(text)[0] }, "apikey"))
                 let buttons = [
@@ -1400,7 +1387,6 @@ module.exports = async (sock, m) => {
             break
             case 'youtube': case 'ytdl': case 'ytshorts': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!isUrl(text)) return m.reply(`Example: ${prefix + command} url`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/youtube", { url: isUrl(text)[0] }, "apikey"))
                 let caption = `*Youtube Downloader*\n\n`
@@ -1430,7 +1416,6 @@ module.exports = async (sock, m) => {
             break
             case 'ytplay': case 'play': {
                 if (command && !isGroup) return global.mess("group", m)
-                if (!isPremium) return global.mess("premium", m)
                 if (!text) return m.reply(`Example: ${prefix + command} query`)
                 let fetch = await fetchUrl(global.api("zenz", "/downloader/ytplay", { query: text }, "apikey"))
                 let caption = `*Youtube Play*\n\n`
